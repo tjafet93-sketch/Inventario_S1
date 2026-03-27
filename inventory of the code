@@ -1,0 +1,55 @@
+# ==========================================
+# Program: inventory.py
+# Description: Requests product data
+# from the user and calculates the total cost.
+# ==========================================
+
+# Variable to control if the user wants to keep registering products
+Continue = "yes"
+while Continue == "yes":
+    # Requests the product name
+    Name = input("Enter the product name: ").strip()
+    print("-" * 50)
+
+    # Price validation
+    PriceV = False
+    while PriceV == False:
+        try:
+            Price = float(input("Enter the product price: "))
+            PriceV = True
+            print("-" * 50)
+        except ValueError:
+            print("Invalid value. Please enter a valid number.")
+
+    # Quantity validation
+    QuantityV = False
+    while QuantityV == False:
+        try:
+            Quantity = int(input("Enter the product quantity: "))
+            QuantityV = True
+            print("-" * 60)
+        except ValueError:
+            print("Invalid value. Please enter a valid integer number.")
+
+    # Calculate the total cost by multiplying price by quantity
+    Total_cost = Price * Quantity
+
+    # Print the results
+    print("DAILY SUMMARY".center(60, "="))
+    print(f"Product: {Name} | Price: {Price} | Quantity: {Quantity} | Total: {Total_cost}")
+    print("-" * 60)
+
+    # Ask if the user wants to keep registering another product
+    Continue = input("Do you want to keep registering another product? Yes/No: ").strip().lower()
+
+# ==========================================
+# This program requests the name, price and
+# quantity of a product from the user. It validates
+# that the price is a decimal number (float) and the
+# quantity is an integer (int), repeating the
+# request if the input is invalid. Then it calculates
+# the total cost (price * quantity) and displays
+# all the information in the console.
+# It allows registering products until the
+# user indicates they do not wish to continue.
+# ==========================================
